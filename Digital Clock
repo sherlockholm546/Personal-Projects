@@ -1,0 +1,50 @@
+<--Html code-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="digital clock.css">
+    <title>Digital Clock</title>
+</head>
+<body>
+    <div id="clock container">
+        <div id="clock">00-00-00</div>
+    </div>
+        <script src="digital clock.js"></script>
+</body>
+</html>
+
+<--Css code-->
+
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #clock-container {
+    text-align: center;
+  }
+
+  #clock {
+    font-size: 48px;
+  }
+
+<--javascript-->
+
+function updateClock(){
+    const now = new Date();
+    let hours = now.getHours();
+    const meridium = hours >= 12 ? "AM" : "PM";
+    const minutes = now.getMinutes().toString().padStart(2, 0);
+    const seconds = now.getSeconds().toString().padStart(2, 0);
+    const timestring = `${hours}:${minutes}:${seconds}${meridium}`;
+    document.getElementById("clock").textContent = timestring;
+}
+
+updateClock();
+setInterval(updateClock, 1000);
