@@ -1,0 +1,74 @@
+<--Javascript-->
+const minnum = 100;
+const maxnum = 200;
+const answer = Math.floor(Math.random() * ( maxnum - minnum + 1) ) + minnum;
+
+let attempts = 0;
+let guess = "";
+let running = true;
+
+while(running){
+
+    guess = window.prompt(`guess a number between ${minnum} - ${maxnum}`);
+   guess = Number(guess);
+
+   if(isNaN(guess)){
+    window.alert("please enter a valid number");
+   }
+   else if(guess < minnum && guess > maxnum){
+    window.alert("please enter a valid number");
+   }
+   else{
+    attempts ++;
+        if(guess < answer){
+            window.alert("too low try again!");
+
+        }else if(guess > answer){
+            window.alert("to high try again!")
+        }
+        else{
+            window.alert(`correct! the answrs was the ${answer} .It took you ${attempts} attempts`);
+            running = false;
+
+        }
+   }
+}
+
+// chatgpt one 
+
+// const minnum = 100;
+//         const maxnum = 200;
+//         const answer = Math.floor(Math.random() * (maxnum - minnum + 1)) + minnum;
+
+//         let attempts = 0;
+
+//         const guessInput = document.getElementById('guessInput');
+//         const submitGuess = document.getElementById('submitGuess');
+//         const feedback = document.getElementById('feedback');
+//         const attemptsDisplay = document.getElementById('attempts');
+//         const result = document.getElementById('result');
+
+//         submitGuess.addEventListener('click', () => {
+//             const guess = Number(guessInput.value);
+
+//             if (isNaN(guess) || guess < minnum || guess > maxnum) {
+//                 feedback.textContent = "Please enter a valid number within the range!";
+//             } else {
+//                 attempts++;
+//                 if (guess < answer) {
+//                     feedback.textContent = "Too low! Try again.";
+//                 } else if (guess > answer) {
+//                     feedback.textContent = "Too high! Try again.";
+//                 } else {
+//                     feedback.textContent = "";
+//                     result.textContent = `Correct! The answer was ${answer}. It took you ${attempts} attempts.`;
+//                     guessInput.disabled = true;
+//                     submitGuess.disabled = true;
+//                 }
+//                 attemptsDisplay.textContent = `Attempts: ${attempts}`;
+//             }
+//             guessInput.value = "";
+//         });
+
+
+            
