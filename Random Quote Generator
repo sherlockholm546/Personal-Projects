@@ -1,0 +1,97 @@
+<--Html code-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="random quotes.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Random Quote generator</h1>
+    <p id="quote">Click the button to generate new quote</p>
+    <button  onclick="generatequote()">Generate New Quote</button>
+    
+    <script src="random quote gen.js"></script>
+</body>
+</html>
+
+<--css code-->
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #fff8dc; 
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+
+  h1 {
+    color: #444;
+    margin-bottom: 20px;
+  }
+
+  #quote {
+    font-size: 18px;
+    color: #333;
+    background-color: #fffff0;
+    padding: 15px 20px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    width: 60%;
+    text-align: center;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+  }
+
+  button {
+    padding: 10px 20px;
+    font-size: 14px;
+    background-color: #ffa500;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #ff8c00;
+  }
+<--javascript-->
+
+
+
+
+function generatequote(){
+    const randomquote = Math.floor(Math.random() * 6)/1;
+    let quote = "";
+   
+
+    if(randomquote == 1){
+        quote = "Success is not final, failure is not fatal: It is the courage to continue that counts.";
+      
+
+    } else if(randomquote == 2){
+        quote = "Believe you can and you're halfway there.";
+    } else if(randomquote == 3){
+        quote = "Hardships often prepare ordinary people for an extraordinary destiny.";
+    } else if(randomquote == 3){
+        quote = "Dream big and dare to fail.";
+    } else if(randomquote == 4){
+        quote = "Do what you can with all you have, wherever you are.";
+    } else if(randomquote == 5){
+        quote = "The harder you work for something, the greater you'll feel when you achieve it.";
+    } else if(randomquote == 6){
+        quote = "Success usually comes to those who are too busy to be looking for it.";
+    }
+    else{
+        quote = "Error Ocurred !";
+    }
+
+    document.getElementById("quote").textContent = `"${quote}"`;
+   
+}
