@@ -1,0 +1,101 @@
+<----Html code----->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="to-do-list.css">
+  <title>To-Do_LIST</title>
+</head>
+<body>
+        
+          <h3>To-Do-List</h3>
+            <input type="text" id="mytext" placeholder="Add a task .">
+            <button id="Selecttask">Select task</button>
+              <ul id="tasklists"></ul>
+        
+
+
+  <script src="to-do-list.js"></script>
+</body>
+</html>
+
+<----css code----->
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f0f8ff; 
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+  }
+
+  .todo-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 300px;
+  }
+
+  #mytext {
+    width: 70%;
+    padding: 8px;
+  }
+
+  #Selecttask {
+    padding: 8px;
+    margin-top: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+  #tasklists {
+    margin-top: 15px;
+    padding-left: 0;
+  }
+
+  #tasklists li {
+    background-color: #e0f7fa;
+    padding: 8px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    list-style: none;
+  }
+
+  #tasklists li button {
+    margin-left: 10px;
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    cursor: pointer;
+  }
+
+<----Javascript----->
+ const mytext = document.getElementById("mytext");
+ const Selecttask = document.getElementById("Selecttask");
+ const tasklists = document.getElementById("tasklists");
+
+ Selecttask.addEventListener("click", () => {
+  const text = mytext.value.trim();
+    if(text !== "") {
+      const li =  document.createElement("li");
+      li.textContent = text;
+
+      const deletebutton = document.createElement("button");
+      deletebutton.textContent = "Delete";
+      deletebutton.addEventListener("click", () => li.remove());
+
+      li.appendChild(deletebutton);
+      tasklists.appendChild(li);
+      mytext.value = "";
+
+    }
+})
+
