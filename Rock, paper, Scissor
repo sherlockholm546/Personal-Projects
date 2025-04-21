@@ -1,0 +1,63 @@
+<--Html-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+<h1>Rock, paper, Scissor</h1>
+    <p>Choose option from below:</p>
+
+    <button onclick="playgame('Rock')">Rock</button>
+    <button onclick="playgame('paper')">Paper</button>
+    <button onclick="playgame('Scissor')">scissor</button>
+
+    <h3>Result:</h3>
+    <p id="user-choice">Yoou chooseeeeeeeeee :-</p>
+    <p id="computer-choice">Computer choseeeeeeeeeeeee :-</p>
+    <p id="result">Result:</p>
+
+    
+
+    <script src="rps.js"></script>
+</body>
+
+</html>
+
+<--JavaScript-->
+function getcomputerchoice(){
+  const choices = ["rock", "paper", "scissor"];
+  const randomindex = Math.floor(Math.random() * 3);
+  return choices[randomindex];
+}
+function playgame(userchoice){
+  const computerchoice = getcomputerchoice();
+  let result = "";
+
+
+  if(userchoice === computerchoice){
+    result = "it's Draw!";
+  }
+  else if (
+           (userchoice === 'rock' && computerchoice === 'scissor') ||
+          (userchoice  === 'paper' && computerchoice === 'rock') ||
+           (userchoice === 'scissors' && computerchoice === 'paper')
+        ){
+          result = "You won";
+        }
+        else{
+          result = "You lose";
+        }
+
+        document.getElementById('user-choice').innerText = `you choose: ${userchoice}`;
+        document.getElementById('computer-choice').innerText = `computer choose: ${computerchoice}`;
+        document.getElementById('result').innerText = `Result: ${result}`;
+
+
+}
+  
