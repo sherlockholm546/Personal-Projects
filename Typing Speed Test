@@ -1,0 +1,129 @@
+<---Html code---->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="typing speedtest.css">
+    <title>Document</title>
+</head>
+<body>
+        <h1>Typing Speed Testt</h1>
+        <p id="text">The quick brown fox jumps over the lazy dog
+            
+        </p>
+        
+        <textarea id="input" placeholder="Start Typing Here...." oninput="startTest()"></textarea>
+        <button onclick="resetTest()">Reset</button>
+        <p id="result"></p>
+
+
+        <!-- write the same statement as above then only it will work -->
+
+
+
+    <script src="typing speedmtest.js"></script>
+</body>
+</html>
+
+<---css code--->
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ececec;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .typing-box {
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 8px;
+    width: 450px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  #text {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 15px;
+    margin-bottom: 15px;
+    color: #444;
+  }
+
+  #input {
+    width: 100%;
+    height: 90px;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    outline: none;
+    margin-bottom: 15px;
+  }
+
+  button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #218838;
+  }
+
+  #result {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #222;
+    text-align: center;
+  }
+
+<---Javascript code----->
+
+let startTime, endTime;
+const textElement = document.getElementById("text");
+const inputElement = document.getElementById("input");
+const resultElement = document.getElementById("result");
+
+function startTest(){
+    if(!startTime){
+        startTime = new Date().getTime();
+    }
+
+    const inputText = inputElement.value;
+    if(inputText === textElement.innerText){
+        endTime = new Date().getTime();
+        const timeTaken = (endTime - startTime) / 1000;
+        const wordCount = textElement.innerText.split("").length;
+        const speed = Math.round((wordCount / timeTaken) * 60);
+        resultElement.innerText = `Typing speed: ${speed} WPM`;
+
+    }
+}
+
+function resetTest(){
+    inputElement.value = "";
+    startTime = null;
+    resultElement.innerText ="";
+}
+
+
+
+
